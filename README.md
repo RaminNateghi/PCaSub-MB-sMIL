@@ -1,32 +1,10 @@
-# PCaSub-MB-sMIL: Multi-Instance Learning for Predicting PAM50 and PSC Molecular Subtypes of Prostate Cancer
+# PCaSub-MB-sMIL: Multi-Instance Learning for Predicting PAM50 and PSC Molecular Subtypes of Prostate Cancer [npj Precision Oncology 2025]
 
 A distributed training framework for predicting molecular subtypes of prostate cancer using pathology whole slide images based on 
 Multi-branch self-attention-based MIL (MB-sMIL) model and fine-tuning pathology foundational model UNIv2.
 
 
-## Project Structure
 
-```
-pcasub-mb-smil/
-├── config/
-│   ├── config.yaml              # Configuration file 
-├── models/
-│   ├── __init__.py
-│   ├── uni_model.py             # UNI model loader
-│   └── mil_model.py             # MB-sMIL predictor model
-├── data/
-│   ├── __init__.py
-│   └── dataset.py               # Dataset and data loading
-├── utils/
-│   ├── __init__.py
-│   ├── distributed.py           # Distributed training utilities
-│   └── metrics.py               # Evaluation metrics
-├── train.py                     # Training script
-├── test.py                      # Testing script
-├── requirements.txt             # Python dependencies
-├── .gitignore                   # Git ignore file
-└── README.md                    # This file
-```
 
 ## Requirements
 
@@ -84,9 +62,9 @@ torchrun --nproc_per_node=1 test.py --checkpoint ./checkpoints/checkpoint.pth --
 ## Model Architecture
 
 - **Foundation Model**: UNI-2 (Vision Transformer)
-- **Feature Dimension**: 1536
+    - **Feature Dimension**: 1536
 - **MIL Aggregator**: Multi-branch self-attention-based MIL (MB-sMIL)
-- **Classification**: multi-class prostate cancer subtyping
+    - **Classification**: multi-class prostate cancer subtyping
 
 ## Output
 
@@ -113,4 +91,4 @@ The project uses PyTorch Distributed Data Parallel (DDP) with NCCL backend. Each
 
 ## Citation
 
-If you use this code, please cite the relevant papers for UNI and your work.
+Prediction of molecular subtypes from histology: AI-driven analysis of prostate cancer morphological patterns and therapeutic implications, npj Precision Oncology, 2025 [Under review]
