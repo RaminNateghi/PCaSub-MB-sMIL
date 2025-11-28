@@ -1,0 +1,93 @@
+# Copy this file to config/config.yaml and fill in your values
+
+# Hugging Face credentials
+huggingface:
+  token: "YOUR_HF_TOKEN_HERE"  # Get from https://huggingface.co/settings/tokens
+
+# Data configuration
+data:
+  slide_dir: "/path/to/your/slide/patches"  # Update this path
+  num_classes: 3  # Number of classification classes [3 for PAM50: LA, LB, B] and [4 for PSC: LD, LP, BI, BN]
+  max_patches_per_slide: None  # Maximum patches to sample per slide (None for no limit)
+  
+  
+# Data splitting
+split:
+  test_size: 0.3
+  val_test_split: 0.5
+  random_seed_train_test: 21
+  random_seed_val_test: 18
+
+# Model configuration
+model:
+  uni:
+    img_size: 448
+    patch_size: 32
+    depth: 24
+    num_heads: 24
+    embed_dim: 1536
+    mlp_ratio: 5.33334  # 2.66667 * 2
+    init_values: 1.0e-5
+    num_classes: 0
+    no_embed_class: true
+    dynamic_img_size: true
+    model_name: "hf-hub:MahmoodLab/UNI2-h"
+  
+  mil:
+    feature_dim: 1536
+    hidden_dim: 256
+    dropout: 0.2
+    num_attention_heads: 16
+
+# Training configuration
+training:
+  epochs: 25
+  learning_rate: 0.00001
+  batch_size: 32
+  num_workers: 2  # Reduced for memory optimization
+  pin_memory: true  # Set to false for memory-constrained systems
+  
+  # Fine-tuning parameters
+  finetune_top_k: 30  # Number of top-k patches to use for UNI fine-tuning
+  
+  # Loss weights for each class (adjust based on class imbalance)
+  # For 3-class: [class_0, class_1, class_2], 3 for PAM50 and 4 for PSC
+  class_weights: [0.5, 0.5, 1.0]
+  
+  # Augmentation settings
+  augmentation:
+    enabled: true
+    horizontal_flip: true
+    vertical_flip: true
+    rotation_degrees: 45
+    color_jitter:
+      brightness: 0.2
+      contrast: 0.2
+      saturation: 0.0
+      hue: 0.0
+    affine:
+      translate: [0.1, 0.1]
+      scale: [0.9, 1.1]
+      shear: 10
+    perspective:
+      distortion_scale: 0.2
+      p: 0.5
+    gaussian_blur:
+      kernel_size: 5
+      sigma: [0.1, 1.5]
+
+# Output configuration
+output:
+  checkpoint_dir: "./checkpoints"
+  log_dir: "./logs"
+
+# Distributed training
+distributed:
+  backend: "nccl"
+  nccl_debug: "INFO"
+  nccl_p2p_disable: "1"
+
+# Normalization constants (ImageNet)
+normalization:
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]

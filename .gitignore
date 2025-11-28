@@ -43,19 +43,11 @@ env/
 checkpoints/
 logs/
 runs/
-wandb/
-
-# Data (adjust as needed)
-data/
-*.h5
-*.hdf5
+wandb
 
 # OS
 .DS_Store
-Thumbs.db
-
-# Config with sensitive info (create a template instead)
-config/config.yaml
+Thumbs
 
 # Temporary files
 *.tmp
