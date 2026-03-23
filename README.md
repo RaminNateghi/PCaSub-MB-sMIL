@@ -9,7 +9,7 @@ Multi-branch self-attention-based MIL (MB-sMIL) model and fine-tuning pathology 
 
 Our framework employs a two-stage fine-tuning strategy: (1) training the MB-sMIL aggregator with a frozen UNIv2 encoder on all tiles, then (2) fine-tuning UNIv2 on the most informative tiles selected by attention weights. At inference, patient-level molecular subtype scores are aggregated across biopsy blocks for downstream clinical outcome prediction.
 
-<img src="assets/figures/figure6.gif" width="100%" alt="Training Pipeline"/>
+<img src="assets/figures/figure6.gif" width="800" style="display:block; margin:auto;" alt="Training Pipeline"/>
 
 
 ---
