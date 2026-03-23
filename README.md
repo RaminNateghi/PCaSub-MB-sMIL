@@ -1,4 +1,4 @@
-# PCaSub-MB-sMIL: Multi-Instance Learning for Predicting PAM50 and PSC Molecular Subtypes of Prostate Cancer [npj Precision Oncology 2025]
+# Prediction of molecular subtypes from histology: AI-driven analysis of prostate cancer morphological patterns and therapeutic implications
 
 A distributed training framework for predicting molecular subtypes of prostate cancer using pathology whole slide images based on 
 Multi-branch self-attention-based MIL (MB-sMIL) model and fine-tuning pathology foundational model UNIv2.
@@ -116,4 +116,4 @@ The project uses PyTorch Distributed Data Parallel (DDP) with NCCL backend. Each
 
 ## Citation
 
-Prediction of molecular subtypes from histology: AI-driven analysis of prostate cancer morphological patterns and therapeutic implications, npj Precision Oncology, 2025 [Under review]
+Nateghi, R., Sun, A., Dang, H. et al. Prediction of molecular subtypes from histology: AI-driven analysis of prostate cancer morphological patterns and therapeutic implications. npj Precis. Onc. (2026). https://doi.org/10.1038/s41698-026-01335-y
