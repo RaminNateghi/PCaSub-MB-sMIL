@@ -114,6 +114,9 @@ Where filenames follow the pattern: `{patient_id}_{slide_info}-{patch_info}_{cla
 
 The project uses PyTorch Distributed Data Parallel (DDP) with NCCL backend. Each GPU processes different patches from each slide, then aggregates features before the MIL forward pass.
 
+## License
+This code is made available under Attribution-NonCommercial-ShareAlike 4.0 International license.
+
 ## Citation
 
 Nateghi, R. et al. Prediction of molecular subtypes from histology: AI-driven analysis of prostate cancer morphological patterns and therapeutic implications. npj Precis. Onc. (2026). https://doi.org/10.1038/s41698-026-01335-y
